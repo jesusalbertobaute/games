@@ -1,0 +1,83 @@
+*{
+    margin:0px;
+    padding: 0px;
+    font-family: verdana;
+}
+
+header{
+    margin: 10% auto;
+    width: 85%;
+    height: 30%;
+}
+
+.menu-item{
+    width: 14%;
+    min-width: 10vw;
+    height: 90%;
+    float: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+div#game1{
+    background-color: #E56D00;
+}
+
+div#game2{
+    background-color: #A1E342;
+}
+
+div#game3{
+    background-color: #E3842B;
+}
+
+div#game4{
+    background-color: #14B9E3
+}
+
+div#game5{
+    background-color: #BE20E3;
+}
+
+div#game6{
+    background-color: #E56D00;
+}
+
+div#game7{
+    background-color: #A1E342;
+}
+
+.item-icon{
+    display: block;
+    background-color: rgba(255,255,255,.15); 
+    padding: 5%;
+    border-radius:20%;
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+    justify-content: center;
+}
+
+.text-menu-item{
+    font-size: medium;
+    color: white;
+    text-align: center;
+    padding-top: 20%;
+}
+
+.menu-item:hover{
+    height: 100%;
+    cursor: pointer;
+}
+
+.menu-item:hover p.text-menu-item{
+    padding-top: 30%;
+}
+
+.menu-item:hover .item-icon{
+    padding: 8%;
+    border-radius:30%;
+}
+
