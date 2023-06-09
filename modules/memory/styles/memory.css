@@ -1,0 +1,13 @@
+#board td{
+    max-width: 10vw;
+    min-width: 10vh;
+    max-height: 10vh;
+    min-height: 10vh;
+    background-color: aqua;
+    table-layout: fixed;
+}
+
+#board img{
+    width: 10vw;
+    height: 10vh;
+}

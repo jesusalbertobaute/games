@@ -1,0 +1,30 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Memory</title>
+        <link rel="stylesheet" href="styles/memory.css">
+        <link rel="stylesheet" href="../../styles.css">
+        <script src="js/data.js" charset="utf-8"></script>
+        <script src="js/memory.js" charset="utf-8"></script>
+    </head>
+    <body>
+        <section>
+            <div class="head-game">
+                <h2>Score: <span id="score-display"></span></h2>
+                <h3>Difficult: 
+                    <select id="difficult-selection">
+                        <option value="easy">Easy</option>
+                        <option value="medium">Medium</option>
+                        <option value="hard">Hard</option>
+                    </select>
+                </h3>
+            </div>
+            <div>
+                <button id="btn-start-game">
+                     <span id="span-start-game">Start Game</span>
+                </button>
+            </div>
+            <div id="grid"></div>
+        </section>
+    </body>
+</html>
