@@ -1,11 +1,3 @@
-section{
-    min-height: 100vh; 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
 .choice-button {
     display: inline-flex;
     align-items: center;
@@ -34,7 +26,7 @@ section{
 
 
 section{
-    background: url("../img/land.jpg") no-repeat;
+    background: url("../images/land.jpg") no-repeat;
     background-position: center;
     background-size: cover;
 }

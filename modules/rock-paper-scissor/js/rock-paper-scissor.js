@@ -34,7 +34,8 @@ window.addEventListener('DOMContentLoaded', (eventLoad) => {
     };
 
     const generateComputerChoice= (userChoice) => {
-       let computerChoice= options[(Math.random() * 2).toFixed()];
+       let indexOption = (Math.random() * 2).toFixed();
+       let computerChoice= options[indexOption];
        computerChoiceDisplay.innerHTML= computerChoice.toUpperCase();
 
        if (userChoice===computerChoice){
