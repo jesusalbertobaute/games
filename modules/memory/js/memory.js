@@ -1,10 +1,17 @@
 window.addEventListener('DOMContentLoaded', (eventLoad) => {
 
     let boardGame=[];
+    let userSelection=[];
+    let discoverCars=[];
+    let scoreGame= 0;
+    let maxScore=0;
 
     const difficultOption= document.getElementById("difficult-selection");
     const grid= document.getElementById("grid");
     const button= document.getElementById("btn-start-game");
+    const scoreDisplay = document.getElementById("score-display");
+    const backHomeButton= document.getElementById("memory-back-menu-button");
+    const winDisplay= document.getElementById("head-win");
 
     function shuffleCards(gameCards){
         let currentIndex= gameCards.length;
@@ -52,24 +59,26 @@ window.addEventListener('DOMContentLoaded', (eventLoad) => {
         copyCards.length=0;
         shuffleCards(gameCards);
         initializeBoardGame(gameCards);
+        discoverCars=[];
+        maxScore=pairs;
     };
 
-    function buildTableInitial(rows,cols,className){
+    function buildTableInitial(rows,cols){
         let tbl= document.createElement("table");
         tbl.setAttribute("id","board");
-        tbl.setAttribute("class",className);
 
         for (currentRow=0; currentRow < rows;++currentRow){
             let row = document.createElement("tr");
             for (currentCol=0;currentCol < cols;++currentCol){
                 let cell= document.createElement("td");
-                cell.setAttribute("id","card" + currentRow + currentCol);
-            //    let cellText= document.createTextNode(currentRow + "" + currentCol);
-             //   cell.appendChild(cellText);  
-               let imageInitial= document.createElement("img");
-               imageInitial.srcset="images/bread.svg";
-               cell.appendChild(imageInitial);
-               row.appendChild(cell);       
+                cell.setAttribute("align","center");
+                cell.setAttribute("class",boardGame[currentRow][currentCol]?.name);
+                let image= document.createElement("img");
+                image.setAttribute("id","img" + currentRow + currentCol);
+                image.setAttribute("class","card-enable");
+                image.srcset=boardGame[currentRow][currentCol]?.urlSVG;
+                cell.appendChild(image);
+                row.appendChild(cell);       
             }
             tbl.appendChild(row);
         }
@@ -77,23 +86,82 @@ window.addEventListener('DOMContentLoaded', (eventLoad) => {
         grid.appendChild(tbl);
     }
 
+    function addBehaviorCards(){
+        let cells= document.querySelectorAll("#board td");
 
-    function buildGrid(difficultLevel){
+        cells.forEach((cell,index)=>{
+              let image= cell.firstChild;
+              cell.addEventListener("click",(e)=>{
+
+                   if (discoverCars.indexOf(cell.className)>-1) return;
+
+                   image.classList.remove("card-enable");
+                   image.classList.add("card-disable");
+
+                   let obj= {
+                       id: image.id,
+                       name: cell.className
+                   }
+                   userSelection.push(obj);
+                 
+
+                   if (userSelection.length===2){
+                       if (userSelection[0]?.name===userSelection[1]?.name){
+                           ++scoreGame;
+                           scoreDisplay.innerHTML= scoreGame;
+                           discoverCars.push(userSelection[0]?.name);
+                           if (scoreGame===maxScore){ 
+                                winDisplay.classList.remove("win-hide");
+                                winDisplay.classList.add("animation-win");
+                           }
+                       }else{
+                           let imageSelection1= document.getElementById(userSelection[0].id);
+                           let imageSelection2= document.getElementById(userSelection[1].id);
+                           
+                           imageSelection1.classList.remove("card-disable");
+                           imageSelection2.classList.remove("card-disable");
+
+                           imageSelection1.classList.add("card-enable");
+                           imageSelection2.classList.add("card-enable");
+                       }
+
+                       userSelection=[];
+                   }
+
+              });
+        });
+
+    }
+
+    function buildGrid(){
         
         if(grid.firstElementChild) grid.removeChild(grid.firstElementChild);
 
         buildTableInitial(boardGame.length,5);
     };
 
+    function initializeScore(){
+        scoreGame=0;
+        scoreDisplay.innerHTML= scoreGame;
+        winDisplay.classList.remove("animation-win");
+        winDisplay.classList.add("win-hide");
+    }
+
     function initializeGame(difficultLevel){
         initializeCards(difficultLevel);
-        buildGrid(difficultLevel);
+        buildGrid();
+        addBehaviorCards();
+        initializeScore();
     };
 
 
     button.addEventListener("click",(e)=>{
         let difficultLevel= difficultOption.value;
         initializeGame(difficultLevel);
+    });
+
+    backHomeButton.addEventListener('click',(e)=>{
+        window.location.href="../../index.html";
     });
    
 });

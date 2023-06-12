@@ -9,22 +9,30 @@
     </head>
     <body>
         <section>
-            <div class="head-game">
-                <h2>Score: <span id="score-display"></span></h2>
-                <h3>Difficult: 
-                    <select id="difficult-selection">
-                        <option value="easy">Easy</option>
-                        <option value="medium">Medium</option>
-                        <option value="hard">Hard</option>
-                    </select>
-                </h3>
-            </div>
-            <div>
-                <button id="btn-start-game">
-                     <span id="span-start-game">Start Game</span>
+            <div class="container">
+                <div class="head-game">
+                    <h2 id="head-win" class="win-hide"><span>You Win!!!</span></h2>
+                    <h2>Score: <span id="score-display">0</span></h2>
+                    <h3>Difficult: 
+                        <select id="difficult-selection">
+                            <option value="easy">Easy</option>
+                            <option value="medium">Medium</option>
+                            <option value="hard">Hard</option>
+                        </select>
+                    </h3>
+                </div>
+                <div>
+                    <button id="btn-start-game" class="image-button">
+                         <img src="images/reload.svg" alt="" id="img-start-game"> 
+                         <span id="span-start-game">New Game</span>
+                    </button>
+                </div>
+                <div id="grid"></div>
+                <button class="image-button" id="memory-back-menu-button">
+                    <img src="../../images/home.png" alt="" id="memory-home-button">
+                    <span>Home</span>
                 </button>
             </div>
-            <div id="grid"></div>
         </section>
     </body>
 </html>

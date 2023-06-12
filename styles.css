@@ -5,3 +5,23 @@ section{
     align-items: center;
     justify-content: center;
 }
+
+.image-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    padding: 10px 20px;
+    border: 2px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.image-button img {
+    height: 20px;
+    margin-right: 5px;
+}
+
+.image-button span {
+    color: black;
+}

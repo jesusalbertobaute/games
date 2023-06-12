@@ -26,7 +26,7 @@
 
 
 section{
-    background: url("../images/land.jpg") no-repeat;
+    background: url("../images/rps_land.jpg") no-repeat;
     background-position: center;
     background-size: cover;
 }
@@ -102,28 +102,11 @@ section{
     font-weight: bold;
 }
 
-.home-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+#rps-back-menu-button{
     background-color: #4EA8F7;
-    color: white;
-    padding: 10px 20px;
-    border: 2px solid black;
-    border-radius: 5px;
-    cursor: pointer;
 }
 
-.home-button img {
-    height: 20px;
-    margin-right: 5px;
-}
-
-.home-button span {
-    color: black;
-}
-
-.home-button:hover {
+#rps-back-menu-button:hover {
     background-color: white;
     color: white;
 }

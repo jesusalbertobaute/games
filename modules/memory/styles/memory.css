@@ -1,13 +1,117 @@
+section{
+    background: url("../images/memory_land.jpg") no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.container{
+    box-shadow: 2px 2px 2px 2px black;
+    padding: 2%;
+    background-color: #bed8ed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 5%;
+}
+
+#board{
+    margin-top: 3vh;
+    border-spacing: 1;
+    border-collapse: separate;
+}
+
+#board tr{
+    border: 3px solid black;
+}
+
 #board td{
     max-width: 10vw;
     min-width: 10vh;
     max-height: 10vh;
     min-height: 10vh;
-    background-color: aqua;
+    background-color: #14B9E3;
     table-layout: fixed;
+    border: 3px solid black;
 }
 
 #board img{
-    width: 10vw;
-    height: 10vh;
+    width: 8vw;
+    height: 8vh;
+    display: block;
+    transition-duration: 10ms;
 }
+
+.card-enable{
+    opacity: 0;
+}
+
+.card-enable:active{
+    opacity: 1;
+}
+
+.card-disable{
+    opacity: 1;
+}
+
+#board img:hover{
+    background-color: rgba(255,255,255,.15); 
+}
+
+#board td:hover{
+    border: 5px solid #E3842B;
+}
+
+#btn-start-game{
+    background-color: #FABA05
+}
+
+#btn-start-game:hover{
+    background-color: white;
+    color: white;
+}
+
+#memory-back-menu-button{
+    margin-top: 3vh;
+    background-color: #4EA8F7;
+}
+
+#memory-back-menu-button:hover {
+    background-color: white;
+    color: white;
+}
+
+#difficult-selection{
+    border-radius: 20%;
+    border: 3px solid #4EA8F7;
+}
+
+
+@keyframes animation-winner{
+    0% {
+       color: red;
+    }
+
+    20% {
+        color:#E3842B ;
+    }
+
+    80% {
+        color:#E3842B ;
+    }
+  
+    100% {
+        color: red;
+    }
+}
+
+.animation-win{
+     display: flex;
+     justify-content: center;
+     align-content: center;
+     animation: animation-winner 1s infinite
+ }
+
+ .win-hide{
+    display: none;
+ }
